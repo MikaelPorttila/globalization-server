@@ -6,6 +6,7 @@
   "author": "Mikael Porttila",
   "license": "MIT",
   "dependencies": {
+    "auto-bind": "^1.2.0",
     "express": "^4.16.3"
   },
   "devDependencies": {
