@@ -1,0 +1,25 @@
+{
+	"version": "0.3.0",
+	"configurations": [
+		{
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Program",
+            "program": "${workspaceRoot}/src/index.ts",
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "skipFiles": [
+                "node_modules/**/*.js"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js"
+            ],
+            "sourceMaps": true,
+            "stopOnEntry": true,
+            "console": "internalConsole",
+            "trace": "all"
+        }
+	]
+}
