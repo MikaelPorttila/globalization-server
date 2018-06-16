@@ -1,0 +1,34 @@
+==============================================[ Database ]==============================================
+
+Tables:
+- [GameState] (serialized game state)
+- [GameMetadata] (tile types, world size, players) (should maybe be serialized and put into the Game object)
+
+- [Player] (id, user, mail, hashed password)
+- [Lobby] (players, player join state) <- for host to manage game metadata and [PlayerLobbies] (ready up and kick)
+- [PlayerLobbies] (player to lobby connection, this would allow on player to join multiple games).
+
+==============================================[ Game Engine notes ]==============================================
+
+GameEngine(gameState, action)
+	each entity(){
+		Move -> RuleEngine(move, gameStateOrSomething);
+	}
+
+GenerateState(gameWorld, player)
+	each gameWorld-player-entities {
+		state -> RuleEngine()
+	}
+
+===============================================[ Flows ]==============================================
+
+1. 	User creates/joins new game -> 
+	New game world is generated -> 
+	Run game engine (process action queue and calculate new game state (with rule engine)).
+
+2. 	User action -> 
+	Action-handler-service -> 
+	Find game(host) -> 
+	Add action to game action queue. -> 
+	if(every player has made their moves === check action queue)
+		Run the game engine
