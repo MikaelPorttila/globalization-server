@@ -1,10 +1,12 @@
 import { EntityType, TileType } from "../constants";
 import { generateWorld } from "../../game/generators/world.generator";
 import GameEntity from "../../game/entities/game-entity";
-import { getSingleRandomTile } from "../../game/game-Metadata";
 import Tile from "../../game/Tile";
 import GameState from "../../game/game-state";
 import GameInstance from "../../game/game-instance";
+import { spawnEntity } from "../../game/entities/game-entities";
+import { findEntitySpawnLocation, getSingleRandomTile } from "../../game/helpers/position.helper";
+import { GameMetadata } from "../../game/game-Metadata";
 
 export async function setupWorldAndInitialGameState(gameInstance: GameInstance): Promise<void> {
 
@@ -30,13 +32,18 @@ export async function setupWorldAndInitialGameState(gameInstance: GameInstance):
 			startLocationTile = getSingleRandomTile(gameInstance.metadata, TileType.Ground, TileType.Mountain, TileType.Woods);
 		}
 
-		const townEntity = new GameEntity();
-		townEntity.entityType = EntityType.Town;
-		townEntity.ownerId = user.id;
-		townEntity.x = startLocationTile.x;
-		townEntity.y = startLocationTile.y;
-
-		gameState.entities.push(townEntity);
+		const playerSpawnEntities = spawnNewUser(user.id, startLocationTile, gameInstance.metadata);
+		gameState.entities = [...gameState.entities, ...playerSpawnEntities];
 	}
 	gameInstance.state = gameState;
 }
+
+function spawnNewUser(userId: string, startLocationTile: Tile, gameMetadata: GameMetadata): GameEntity[]{
+
+	const workerSpawnTile = findEntitySpawnLocation(startLocationTile, 2, gameMetadata, [TileType.Ground, TileType.Woods, TileType.Mountain]);
+	const result = [
+		spawnEntity(EntityType.Town, userId, startLocationTile.x, startLocationTile.y),
+		spawnEntity(EntityType.Scout, userId, workerSpawnTile.x, workerSpawnTile.y)	
+	];
+	return result; 
+} 

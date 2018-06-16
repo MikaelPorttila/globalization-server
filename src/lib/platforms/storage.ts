@@ -18,7 +18,8 @@ import {
 	mongoStoreGameInstance, 
 	mongoDeleteGameInstance, 
 	mongoDeleteAllGameInstances, 
-	mongoGetGames 
+	mongoGetGames,
+	mongoAllGetGames
 } from "./mongodb/models/game.mongo-model";
 
 //TODO:(Mikael) Load storage platform from configuration.
@@ -89,6 +90,16 @@ export async function getGames(): Promise<GameInstance[]> {
 	switch (storagePlatform) {
 		case StoragePlatform.MongoDB:
 			result = await mongoGetGames();
+			break;
+	}
+	return result;
+}
+
+export async function getAllGames(): Promise<GameInstance[]> {
+	let result = [];
+	switch (storagePlatform) {
+		case StoragePlatform.MongoDB:
+			result = await mongoAllGetGames();
 			break;
 	}
 	return result;

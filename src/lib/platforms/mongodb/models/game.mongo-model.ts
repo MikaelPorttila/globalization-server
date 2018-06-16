@@ -101,6 +101,15 @@ export async function mongoStoreGameInstance(gameInstance: GameInstance): Promis
 	await createOrUpdateMongo(GameInstanceMongoModel, { gameId }, updateModel);
 }
 
+export async function mongoAllGetGames(): Promise<GameInstance[]> {
+	let result = [];
+	const mongoModel = await GameInstanceMongoModel.find({});
+	if (mongoModel) {
+		result = mongoModel.map(mm => mapToGameInstance((mm)));
+	}
+	return result;
+}
+
 export async function mongoGetGames(): Promise<GameInstance[]> {
 	let result = [];
 	const mongoModel = await GameInstanceMongoModel.find({})

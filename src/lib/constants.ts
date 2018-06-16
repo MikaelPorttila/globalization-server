@@ -49,7 +49,8 @@ export enum WorldType {
 
 export enum EntityType {
 	Town = 0,
-	Worker = 1
+	Worker = 1,
+	Scout = 2
 }
 
 export enum StoragePlatform {

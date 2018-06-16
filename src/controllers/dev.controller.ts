@@ -1,6 +1,11 @@
 import { Request, Response } from 'express';
 import Controller from '../lib/base/controller';
-import { deleteAllGameInstances, deleteAllSnapshots, getGames } from '../lib/platforms/storage';
+import { 
+	deleteAllGameInstances, 
+	deleteAllSnapshots, 
+	getGames, 
+	getAllGames 
+} from '../lib/platforms/storage';
 
 export default class DevController extends Controller {
 
@@ -17,7 +22,7 @@ export default class DevController extends Controller {
 	}
 
 	async getAllGames(req: Request, res: Response): Promise<void> {
-		const games = await getGames();
+		const games = await getAllGames();
 		res.send(games);
 	}
 }
