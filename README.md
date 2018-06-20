@@ -19,7 +19,7 @@ docker start mongo
 Check list:
 
 Game related stuff:
-- [ ] Move to a area based world generator instead randomize every single tile by itself.
+- [ ] Move to an area based world generator instead randomize every single tile by itself.
 - [ ] Add more entities
 - [ ] knowledge Tree
 - [ ] Add stats for players (Gold, etc...)
