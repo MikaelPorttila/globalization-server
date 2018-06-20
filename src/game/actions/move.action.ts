@@ -5,7 +5,7 @@ import GameEntity from "../entities/game-entity";
 
 export default function moveEntity(entity: GameEntity, actionMetadata: string[], gameMetadata: GameMetadata) {
 
-	if (!entity || !actionMetadata || actionMetadata.length < 1 || entity.attributes.some(attr => attr == GameAttribute.Movable)) {
+	if (!entity || !actionMetadata || actionMetadata.length < 1 || entity.attributes.some(attr => attr === GameAttribute.Movable)) {
 		return;
 	}
 

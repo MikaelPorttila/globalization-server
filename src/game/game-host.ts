@@ -10,14 +10,14 @@ import computeSnapshots from '../lib/procedures/snapshot.procedure';
 
 export default class GameHost {
 
-	static async tryProcessNext(gameId: string) {
+	static async tryProcessNext(gameId: string): Promise<void> {
 
 		const gameInstance = await getGameInstance(gameId);
 		if (gameInstance.readyUserIds.length === gameInstance.users.length) {
 			gameInstance.state = GameHost.processGame(
-				gameInstance.state, 
-				gameInstance.metadata, 
-				gameInstance.userActions, 
+				gameInstance.state,
+				gameInstance.metadata,
+				gameInstance.userActions,
 				gameInstance.turnId);
 
 			GameHost.resetTurn(gameInstance);

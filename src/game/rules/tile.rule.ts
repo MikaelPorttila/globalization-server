@@ -14,13 +14,13 @@ export function entityCanStandOnTile(entity: GameEntity, tile: Tile): boolean {
 		break;
 		case TileType.Water:
 			result = entity.attributes.some(attr => 
-				attr == GameAttribute.WaterUnit ||
-				attr == GameAttribute.AirUnit);
+				attr === GameAttribute.WaterUnit ||
+				attr === GameAttribute.AirUnit);
 		break;
 		case TileType.Mountain:
 			result = entity.attributes.some(attr => 
-				attr == GameAttribute.AirUnit || 
-				attr == GameAttribute.LandUnit);
+				attr === GameAttribute.AirUnit || 
+				attr === GameAttribute.LandUnit);
 		break;
 	}
 

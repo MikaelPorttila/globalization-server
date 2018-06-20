@@ -9,6 +9,7 @@ export enum GameActionType {
 export enum GameAttribute {
 	Movable = 0,
 	LandUnit = 1,
+	Structure = 2,
 	WaterUnit = 20,
 	AirUnit = 30
 } 

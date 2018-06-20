@@ -70,7 +70,7 @@ class TileTypeRangeBuilder {
 
 	add(tileType: TileType, rangeLength: number): void {
 
-		if (rangeLength == 0) {
+		if (rangeLength === 0) {
 			return;
 		}
 

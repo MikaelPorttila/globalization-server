@@ -44,7 +44,7 @@ export default class LobbyController extends Controller {
 
 	async createOrUpdateLobby(req: Request, res: Response): Promise<void> {
 		const model = <LobbyModel>req.body;
-		if (!model.name || model.name.length == 0) {
+		if (!model.name || model.name.length === 0) {
 			res.sendStatus(400).send('Lobby name must be assigned');
 			return;
 		}

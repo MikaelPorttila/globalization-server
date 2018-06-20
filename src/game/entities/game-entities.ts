@@ -2,8 +2,12 @@ import GameEntity from "./game-entity";
 import { EntityType, GameAttribute, GameStat } from "../../lib/constants";
 import guid from "../../lib/guid";
 
-
-export function spawnEntity(entityType: EntityType, userId: string, x: number, y: number): GameEntity {
+export function spawnEntity(
+	entityType: EntityType,
+	userId: string,
+	x: number,
+	y: number
+): GameEntity {
 	const result = new GameEntity();
 	result.entityId = guid();
 	result.entityType = entityType;
@@ -15,6 +19,7 @@ export function spawnEntity(entityType: EntityType, userId: string, x: number, y
 
 	switch (entityType) {
 		case EntityType.Town:
+			result.attributes = [GameAttribute.Structure];
 			result.stats[GameStat.Health] = 100;
 			result.stats[GameStat.Defence] = 10;
 			result.stats[GameStat.RangeAttack] = 5;
@@ -27,7 +32,6 @@ export function spawnEntity(entityType: EntityType, userId: string, x: number, y
 			result.stats[GameStat.RangeAttack] = 0;
 			result.stats[GameStat.Health] = 10;
 			break;
-
 		case EntityType.Scout:
 			result.attributes = [GameAttribute.Movable, GameAttribute.LandUnit];
 			result.stats[GameStat.MovementSpeed] = 4;
