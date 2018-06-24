@@ -5,6 +5,9 @@ class AppConfig {
 	
 	constructor() {
 		this.isDebug = process.env.NODE_ENV !== "Production";
+		if(this.isDebug){
+			process.env.IS_DEBUG = "true";	
+		}
 	}
 
 	public setup(): void {

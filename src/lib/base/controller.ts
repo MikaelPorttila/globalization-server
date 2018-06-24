@@ -22,9 +22,14 @@ export default class Controller {
 
 	async getCurrentUser(req: Request): Promise<User> {
 		//TODO: (Mikael) remove development header
-		const devSecHeader = this.getTempSecHeader(req);
-		const result = await getUser(devSecHeader);
 
+		let result = undefined;
+
+		if(process.env.IS_DEBUG){
+			const devSecHeader = this.getTempSecHeader(req);
+			result = await getUser(devSecHeader);
+		}
+		
 		return result;
 	}
 }

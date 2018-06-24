@@ -26,7 +26,9 @@ export default class TempUserController extends Controller {
 		user.accountActivated = false;
 		user.accountActivationCode = guid();
 		//TODO: (MIKAEL) !!!Remove temp dev code
-		user.id = <string>this.getTempSecHeader(req);
+		if(process.env.IS_DEBUG){
+			user.id = <string>this.getTempSecHeader(req);
+		}
 
 		await storeUser(user);
 		//TODO: (MIKAEL) Mail activation code
