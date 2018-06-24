@@ -9,6 +9,7 @@
     "auto-bind": "^1.2.0",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "mongodb": "^3.1.0-beta4",
@@ -26,7 +27,7 @@
     "typescript": "^2.8.3"
   },
   "scripts": {
-    "start": "tsc -w | nodemon ./dist/index.js",
+    "start": "NODE_ENV=dev tsc -w | nodemon ./dist/index.js",
     "test": "node ./dist/index.js",
     "ts:watch": "tsc -w"
   }

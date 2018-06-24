@@ -22,8 +22,7 @@ import {
 	mongoAllGetGames
 } from "./mongodb/models/game.mongo-model";
 
-//TODO:(Mikael) Load storage platform from configuration.
-const storagePlatform = StoragePlatform.MongoDB;
+const storagePlatform = process.env.STORAGE_PLATFORM || StoragePlatform.MongoDB;
 
 //==============================================================
 //=============================  USER  =========================
