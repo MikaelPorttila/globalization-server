@@ -63,3 +63,4 @@ typings/
 # outputs
 dist/
 .cache/
+/.env

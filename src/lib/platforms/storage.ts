@@ -2,22 +2,22 @@ import { StoragePlatform } from "../constants";
 import GameInstance from "../../game/game-instance";
 import { User } from "../entities/user";
 import PlayerStateSnapshot from "../../game/snapshots/player-state.snapshot";
-import { 
-	mongoGetUserById, 
-	mongoStoreUser 
+import {
+	mongoGetUserById,
+	mongoStoreUser
 } from "./mongodb/models/user.mongo-model";
-import { 
-	mongoGetSnapshot, 
-	mongoStoreSnapshot, 
-	mongoUpdateOrCreateSnapshot, 
-	mongoDeleteSnapshot, 
-	mongoDeleteAllSnapshots 
+import {
+	mongoGetSnapshot,
+	mongoStoreSnapshot,
+	mongoUpdateOrCreateSnapshot,
+	mongoDeleteSnapshot,
+	mongoDeleteAllSnapshots
 } from "./mongodb/models/snapshot.mongo-model";
-import { 
-	mongoGetGameInstance, 
-	mongoStoreGameInstance, 
-	mongoDeleteGameInstance, 
-	mongoDeleteAllGameInstances, 
+import {
+	mongoGetGameInstance,
+	mongoStoreGameInstance,
+	mongoDeleteGameInstance,
+	mongoDeleteAllGameInstances,
 	mongoGetGames,
 	mongoAllGetGames
 } from "./mongodb/models/game.mongo-model";
