@@ -2,18 +2,21 @@ import * as dotenv from 'dotenv';
 import { StoragePlatform } from './lib/constants';
 
 class AppConfig {
-	private isDebug: boolean = true;
 
 	constructor() {
-		this.isDebug = process.env.NODE_ENV !== "Production";
-		if (this.isDebug) {
+
+		if (process.env.IS_DEBUG) {
+			throw "Please don't set the IS_DEBUG process.env variable, use the NODE_ENV variable instead and set it to another value than 'Production'";
+		}
+
+		if (process.env.NODE_ENV !== "Production") {
 			process.env.IS_DEBUG = "true";
 		}
 	}
 
 	public setup(): void {
 
-		if (this.isDebug) {
+		if (process.env.IS_DEBUG) {
 			dotenv.load();
 		}
 
@@ -27,7 +30,7 @@ class AppConfig {
 			AZURE_STORAGE_URL: process.env.AZURE_STORAGE_URL || ""
 		});
 
-		if(this.isDebug){
+		if (process.env.IS_DEBUG) {
 			console.log('Debug mode active');
 			console.log('AppConfig invoked');
 			console.log('App name: ' + process.env.APPLICATION_NAME);

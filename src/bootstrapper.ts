@@ -5,7 +5,6 @@ import TempUserController from './controllers/temp-user.controller';
 import GameController from './controllers/game.controller';
 import DevController from './controllers/dev.controller';
 
-
 export class Bootstrapper {	
 	private lobbyController: LobbyController;
 	private gameController: GameController;
@@ -24,13 +23,15 @@ export class Bootstrapper {
 		this.gameController = new GameController();
 		this.tempUserController = new TempUserController();
 		
+		// setup routing and start server
+		this.configRoutes();
+
 		if(process.env.IS_DEBUG){
 			this.devController = new DevController();
+			this.server.app.use('/dev', this.devController.router);
 			console.log('Development controller registered');
 		}
 
-		// setup routing and start server
-		this.configRoutes();
 		this.server.start();
 	}
 
@@ -38,6 +39,5 @@ export class Bootstrapper {
 		this.server.app.use('/lobby', this.lobbyController.router);
 		this.server.app.use('/user', this.tempUserController.router);
 		this.server.app.use('/game', this.gameController.router);
-		this.server.app.use('/dev', this.devController.router);
 	}
 }

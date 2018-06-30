@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "auto-bind": "^1.2.0",
+    "azure-storage": "^2.9.0-preview",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
@@ -29,6 +30,7 @@
   "scripts": {
     "start": "NODE_ENV=dev tsc -w | nodemon ./dist/index.js",
     "test": "node ./dist/index.js",
-    "ts:watch": "tsc -w"
+    "ts:watch": "tsc -w",
+    "build": "tsc"
   }
 }
