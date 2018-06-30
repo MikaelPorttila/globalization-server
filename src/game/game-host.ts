@@ -1,6 +1,6 @@
 import { GameActionType } from '../lib/constants';
 import moveEntity from './actions/move.action';
-import { GameMetadata } from './game-Metadata';
+import { GameMetadata } from './game-metadata';
 import GameState from './game-state';
 import { getGameInstance, storeGameInstance } from '../lib/platforms/storage';
 import GameUserAction from './game-user-action';

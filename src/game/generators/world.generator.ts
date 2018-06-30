@@ -1,4 +1,4 @@
-import { GameMetadata, setTile } from "../game-Metadata";
+import { GameMetadata, setTile } from "../game-metadata";
 import { WorldSize, WorldType, TileType } from "../../lib/constants";
 
 export function generateWorld(worldSize: WorldSize, worldType: WorldType): GameMetadata {

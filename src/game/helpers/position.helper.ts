@@ -1,5 +1,5 @@
-import Tile from "../Tile";
-import { GameMetadata, getTile } from "../game-Metadata";
+import Tile from "../tile";
+import { GameMetadata, getTile } from "./../game-metadata";
 import { TileType } from "../../lib/constants";
 
 export function findEntitySpawnLocation(	

@@ -1,4 +1,4 @@
-import Tile from "./Tile";
+import Tile from "./tile";
 import { TileType } from "../lib/constants";
 import Tiles from "../lib/types/tiles";
 

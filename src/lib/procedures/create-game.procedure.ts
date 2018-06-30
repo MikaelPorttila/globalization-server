@@ -1,12 +1,12 @@
 import { EntityType, TileType } from "../constants";
 import { generateWorld } from "../../game/generators/world.generator";
 import GameEntity from "../../game/entities/game-entity";
-import Tile from "../../game/Tile";
+import Tile from "../../game/tile";
 import GameState from "../../game/game-state";
 import GameInstance from "../../game/game-instance";
 import { spawnEntity } from "../../game/entities/game-entities";
 import { findEntitySpawnLocation, getSingleRandomTile } from "../../game/helpers/position.helper";
-import { GameMetadata } from "../../game/game-Metadata";
+import { GameMetadata } from "../../game/game-metadata";
 
 export async function setupWorldAndInitialGameState(gameInstance: GameInstance): Promise<void> {
 

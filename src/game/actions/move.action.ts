@@ -1,5 +1,5 @@
 import { GameAttribute, Direction, GameStat } from "../../lib/constants";
-import { GameMetadata, getTile } from "../game-Metadata";
+import { GameMetadata, getTile } from "../game-metadata";
 import { entityCanStandOnTile } from "../rules/tile.rule";
 import GameEntity from "../entities/game-entity";
 

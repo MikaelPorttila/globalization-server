@@ -1,6 +1,6 @@
 import PlayerStateSnapshot from "../../game/snapshots/player-state.snapshot";
 import guid from "../guid";
-import { GameMetadata, getTile } from "../../game/game-Metadata";
+import { GameMetadata, getTile } from "../../game/game-metadata";
 import GameState from "../../game/game-state";
 import { updateSnapshot } from "../platforms/storage";
 

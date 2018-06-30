@@ -1,5 +1,5 @@
 import GameEntity from "../entities/game-entity";
-import Tile from "../Tile";
+import Tile from "../tile";
 import { TileType, GameAttribute } from "../../lib/constants";
 
 export function entityCanStandOnTile(entity: GameEntity, tile: Tile): boolean {

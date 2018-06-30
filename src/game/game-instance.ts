@@ -1,4 +1,4 @@
-import { GameMetadata } from "./game-Metadata";
+import { GameMetadata } from "./game-metadata";
 import GameState from "./game-state";
 import { WorldSize, WorldType } from "../lib/constants";
 import GameUserAction from "./game-user-action";

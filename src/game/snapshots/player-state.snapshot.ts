@@ -1,4 +1,4 @@
-import Tile from "../Tile";
+import Tile from "../tile";
 import EntitySnapshot from "./entity.snapshot";
 
 export default class PlayerStateSnapshot {
