@@ -36,6 +36,7 @@ export class Bootstrapper {
 	}
 
 	private configRoutes(): void {
+		this.server.app.use('/', (req, res) =>  res.send("Hello Globalization"));
 		this.server.app.use('/lobby', this.lobbyController.router);
 		this.server.app.use('/user', this.tempUserController.router);
 		this.server.app.use('/game', this.gameController.router);
