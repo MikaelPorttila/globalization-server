@@ -21,6 +21,7 @@ import {
 	mongoGetGames,
 	mongoAllGetGames
 } from "./mongodb/models/game.mongo-model";
+import DatabaseClient from "./mongodb/database-client";
 
 const storagePlatform = process.env.STORAGE_PLATFORM || StoragePlatform.MongoDB;
 
@@ -147,5 +148,20 @@ export async function deleteSnapshot(snapshotId: string): Promise<void> {
 		case StoragePlatform.MongoDB:
 			await mongoDeleteSnapshot(snapshotId);
 			break;
+	}
+}
+
+
+//==============================================================
+//===========================  Misc  ===========================
+//==============================================================
+
+export async function checkConnectionStatus(): Promise<boolean> {
+	switch (storagePlatform) {
+		case StoragePlatform.MongoDB:
+			const storage = new DatabaseClient();
+			return await storage.testConnection();
+		case StoragePlatform.AzureTableStorage:
+			return false;
 	}
 }

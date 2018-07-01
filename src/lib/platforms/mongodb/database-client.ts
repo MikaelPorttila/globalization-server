@@ -13,9 +13,15 @@ export default class DatabaseClient {
 		};
 	}
 
-	async testConnection(): Promise<void> {
-		await connect(this.serverUrl)
-			.then(() => console.log('connected!'))
-			.catch((err) => console.log(err));
+	async testConnection(): Promise<boolean> {
+		return await connect(this.serverUrl)
+			.then(() => {
+				console.log('connected!');
+				return true;
+			})
+			.catch((err) => {
+				console.log(err);
+				return false;
+			});
 	}
 }
